@@ -22,5 +22,53 @@ export const robots = [
         name: 'Betty Cooper',
         username: 'Betty',
         email: 'betty@goodgirl.com'
-    }
+    },
+    {
+        id: 5,
+        name: 'Reggie Mantle',
+        username: 'Reggie',
+        email: 'reggie@dumas.com'
+    },
+    {
+        id: 6,
+        name: 'Ethel Muggs',
+        username: 'Ethel',
+        email: 'ethel@muggs.com'
+    },
+    {
+        id: 7,
+        name: 'Dilton Doiley',
+        username: 'Dilton',
+        email: 'dilton@atom.com'
+    },
+    {
+        id: 8,
+        name: 'Nancy Wood',
+        username: 'Nancy',
+        email: 'nancy@curlycurls.com'
+    },
+    {
+        id: 9,
+        name: 'Moose Mason',
+        username: 'Moose',
+        email: 'moose@footba.com'
+    },
+    {
+        id: 10,
+        name: 'Midge Clump',
+        username: 'Midge',
+        email: 'midge@smartypens.com'
+    },
+    {
+        id: 11,
+        name: 'Chuck Clayton',
+        username: 'Chuck',
+        email: 'chuck@yuppi.com'
+    },
+    {
+        id: 12,
+        name: 'Hot Dog',
+        username: 'Hot Dog',
+        email: '-'
+    },
 ]
