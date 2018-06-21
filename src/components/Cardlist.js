@@ -3,9 +3,9 @@ import Card from './Card';
 
 
 const Cardlist = ({ robots }) => {
-    if(true){
-        throw new Error('Noooooooo!');
-    }
+    // if(true){
+    //     throw new Error('Noooooooo!'); //error imitating
+    // }
     return (
         <div>
         {
