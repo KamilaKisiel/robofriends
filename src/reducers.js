@@ -6,11 +6,11 @@ import {
  } from './constants.js';
 
 
-const initialState = {
+const initialStateSearch = {
     searchField: ''
 }
 
-export const searchRobots = (state=initialState, action={}) => {
+export const searchRobots = (state=initialStateSearch, action={}) => {
     switch(action.type) {
         case CHANGE_SEARCH_FIELD:
         return Object.assign({}, state, {searchField: action.payload});
@@ -20,9 +20,13 @@ export const searchRobots = (state=initialState, action={}) => {
     }
 }
 
+const initialStateRobots = {
+    isPending: false,
+    robots: [],
+    error: ''
+}
 
-
-export const requestRobots = (state=initialState, action={}) => {
+export const requestRobots = (state=initialStateRobots, action={}) => {
     switch(action.type) {
         case REQUEST_ROBOTS_PENDING:
         return Object.assign({}, state, { isPending: true })
