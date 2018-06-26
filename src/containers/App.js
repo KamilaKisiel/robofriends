@@ -6,42 +6,37 @@ import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css';
 
-import { setSearchField } from '../action';
+import { setSearchField, requestRobots } from '../action';
 
 const mapStateToProps = state => { //tells what peace of state we nedd to listnen to
     return {
-        searchField: state.searchField
+        searchField: state.searchRobots.searchField,
+        robots: state.requestRobots.robots,
+        isPending: state.requestRobots.isPending,
+        error: state.requestRobots.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => { //tells what props/actions we should listnen to that need to be dispatched
     return { 
-        onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+        onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+        onRequestRobots: () => dispatch(requestRobots())
     }
 }
 
 class App extends Component {
-    constructor() {
-        super()
-        this.state = {
-            robots: []
-        }
-    }
-
+   
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(users => { this.setState({ robots: users }) })
+        this.props.onRequestRobots();
     }
 
 
     render() {
-        const { robots } = this.state;
-        const { searchField, onSearchChange } = this.props;
+        const { searchField, onSearchChange, robots, isPending } = this.props;
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
         })
-        return !robots.length ?
+        return isPending ?
             <h1>Loading...</h1> :
             (
                 <div className='tc'>
